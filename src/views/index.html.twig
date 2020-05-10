@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+
+<div class="container">
+
+    <h1 class="mt-4">Upload your file</h1>
+
+    {% for label, messages in flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message | raw }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <form method="post" action="/upload">
+        <h3 class="mt-4">Available files</h3>
+        {% for file in files %}
+        <div class="form-check">
+            <input class="form-check-input" name="file" type="radio" value="{{ file }}" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                {{ file }}
+            </label>
+        </div>
+        {% endfor %}
+
+        <h3 class="mt-4">Available services</h3>
+        {% for service in services %}
+        <div class="form-check">
+            <input name="services[]" class="form-check-input" type="checkbox" value="{{ service }}" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+                {{ service }}
+            </label>
+        </div>
+        {% endfor %}
+
+        <input type="submit" name="Upload" value="Upload"  class="btn btn-primary mt-4"/>
+    </form>
+
+</div>
+
+{% endblock %}
