@@ -6,5 +6,6 @@
 2. Run `composer install`
 3. Put files to upload into /data folder
 4. Edit account settings for particular service (e.g. src/services/GithubUpload.php)
-5. Stat PHP server in /public/ folder. `php -S localhost:8000 -t public/`
+5. Go to project directory and start PHP server in /public/ folder. `php -S localhost:8000 -t public/`
+6. Go to URL `localhost:8000`
 
