@@ -92,11 +92,17 @@ class IndexController
     {
         $file       = $this->request->getParsedBody()['file'];
         $services   = $this->request->getParsedBody()['services'];
+        $unzip      = (isset($this->request->getParsedBody()['unzip']) && $this->request->getParsedBody()['unzip'] === 'yes') ? true : false;
 
         $result = [];
 
         if (file_exists(self::FILEPATH . DIRECTORY_SEPARATOR . $file)) {
-            $files = $this->unzipper->setFile(self::FILEPATH . DIRECTORY_SEPARATOR . $file)->unzip();
+            if ($unzip) {
+                $files = $this->unzipper->setFile(self::FILEPATH . DIRECTORY_SEPARATOR . $file)->unzip();
+            }
+            else {
+                $files[] = $file;
+            }
         }
         else {
             $message = 'File <strong>' . $file. '</strong> does not exists on the server';

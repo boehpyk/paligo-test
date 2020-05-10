@@ -32,8 +32,8 @@ class GithubUpload implements UploadInterface
     {
         $this->settings = [
             'userName'      => 'boehpyk',
-            'password'      => '',
-            'repoName'      => '',
+            'password'      => 'Ktitxrf2007',
+            'repoName'      => 'testupload',
             'branchname'    => 'master',
             'folder'        => ''
         ];
