@@ -4,7 +4,7 @@
 
 1. clone this repository
 2. Run `composer install`
-3. Put files to upload into /data directory
+3. Put files to upload into /data folder
 4. Edit account settings for particular service (e.g. src/services/GithubUpload.php)
-
+5. Stat PHP server in /public/ folder. `php -S localhost:8000 -t public/`
 
